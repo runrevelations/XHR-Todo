@@ -1,0 +1,43 @@
+<doctype html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="quick-styles.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" user-scalable="no" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+  <div class="container">
+  
+    <!-- Todo List -->
+    <h1 class="text-center"> Todos </h1>
+    <ol type="hidden" id="list"></ol> 
+    
+    <!-- Refresh Button -->
+    <div class="text-center" id="refresh-btn">
+      <button class="btn btn-primary btn-block" onclick="$httpGet(url, urlEncoded)">Refresh Todos</button>
+    </div>
+    
+    <!-- New Todo -->
+    <div class="input-forms">
+      <form class="text-center" name="todoForm" enctype="application/x-www-form-urlencoded" method="post" onsubmit="$httpPost(url, urlEncoded)">
+        <h3>New Todo</h3>
+        <input type="text" id="todoName" name="name" placeholder="Enter a todo.">
+        <div class="text-center">
+          <input class="btn btn-success btn-block" type="submit" value="Submit">
+        </div>
+      </form>
+      
+      <!-- Delete Todo -->
+      <form class="text-center" onsubmit="deleteTodo()">
+        <h3>Delete Todo</h3>
+        <input type="text" name="toDelete" id="toDelete" placeholder="Todo number to delete.">
+          
+        <div class="text-center">
+          <input class="btn btn-danger btn-block" type="submit" value="Delete">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<script src='xmlhttpscript.js'></script>
+<script> $httpGet(url, urlEncoded) </script>
+</html>
